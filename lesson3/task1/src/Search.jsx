@@ -1,7 +1,7 @@
 import React from 'react';
 import './search.scss';
 
-export const Search = ({ name }) => (
+const Search = ({ name }) => (
   <div className="search">
     <h1 className="search__title">Hello, {name}. What to search for you?</h1>
     <div className="search__field">
@@ -10,3 +10,5 @@ export const Search = ({ name }) => (
     </div>
   </div>
 );
+
+export default Search;
