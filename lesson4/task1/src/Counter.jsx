@@ -13,8 +13,7 @@ class Counter extends Component {
       this.setState({
         counter: this.state.counter + 1,
       });
-      this.state.counter += 1;
-    }, this.props.interval);
+    }, props.interval);
   }
 
   render() {
