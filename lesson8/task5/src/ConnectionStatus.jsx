@@ -24,7 +24,6 @@ class ConnectionStatus extends React.Component {
   };
 
   componentWillUnmount() {
-    console.log('componentWillUnmount');
     window.removeEventListener('offline', this.onOffline());
     window.removeEventListener('online', this.onOnline());
   }
