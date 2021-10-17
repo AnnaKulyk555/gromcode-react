@@ -1,32 +1,24 @@
 import React from 'react';
 
 class ConnectionStatus extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      networkStatus: 'online',
-    };
+  state = {
+    networkStatus: 'online',
+  };
 
-    window.addEventListener('offline', this.onOffline);
-    window.addEventListener('online', this.onOnline);
+  componentDidMount() {
+    window.addEventListener('online', this.onNetworkStatus);
+    window.addEventListener('offline', this.onNetworkStatus);
   }
-
-  onOffline = () => {
-    this.setState({
-      networkStatus: 'offline',
-    });
-  };
-
-  onOnline = () => {
-    this.setState({
-      networkStatus: 'online',
-    });
-  };
 
   componentWillUnmount() {
-    window.removeEventListener('offline', this.onOffline);
-    window.removeEventListener('online', this.onOnline);
+    window.removeEventListener('online', this.onNetworkStatus);
+    window.removeEventListener('offline', this.onNetworkStatus);
   }
+
+  onNetworkStatus = e => {
+    console.log(e);
+    this.setState({ networkStatus: e.type });
+  };
 
   render() {
     return this.state.networkStatus === 'offline' ? (
