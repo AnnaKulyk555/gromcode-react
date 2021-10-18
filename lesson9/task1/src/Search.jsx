@@ -11,6 +11,7 @@ class Search extends React.Component {
 
   search = event => {
     event.preventDefault();
+    // eslint-disable-next-line no-alert
     alert(`Search text: ${this.state.value}`);
   };
 
